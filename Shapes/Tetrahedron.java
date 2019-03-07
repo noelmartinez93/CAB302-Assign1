@@ -4,15 +4,15 @@ public class Tetrahedron implements Shape
 {
     private double edge;
 
-    public Tetrahedron(double edge)
+    public Tetrahedron(double edg)
     {
-        edge = this.edge;
+        this.edge = edg;
     }
 
     @Override
     public double volume(double ed)
     {
-        double result = (ed * ed * ed) / 6 * Math.sqrt(2);
+        double result = ((ed * ed) * ed) / (6 * Math.sqrt(2));
         return result;
     }
 
