@@ -7,7 +7,7 @@ public class PastaModified {
 
 	// Constructs a Pasta object with a price and a type
 	public PastaModified(PastaType type) {
-		this.price = price;
+		this.price = price();
 		this.type = type.toString();
 	}
 
