@@ -12,16 +12,16 @@ public class Cone implements Shape
     }
 
     @Override
-    public double volume(double rad, double hei)
+    public double volume()
     {
-        double result = Math.PI*((rad * rad) * (hei / 3));
+        double result = Math.PI*((radius * radius) * (height / 3));
         return result;
     }
 
     @Override
-    public double surfaceArea (double rad, double hei)
+    public double surfaceArea ()
     {
-        double result = Math.PI*(rad * (rad + (Math.sqrt((hei * hei) + (rad * rad)))));
+        double result = Math.PI*(radius * (radius + (Math.sqrt((height * height) + (radius * radius)))));
         return result;
     }
 }

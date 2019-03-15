@@ -10,16 +10,16 @@ public class Tetrahedron implements Shape
     }
 
     @Override
-    public double volume(double ed)
+    public double volume()
     {
-        double result = ((ed * ed) * ed) / (6 * Math.sqrt(2));
+        double result = ((edge * edge) * edge) / (6 * Math.sqrt(2));
         return result;
     }
 
     @Override
-    public double surfaceArea(double ed)
+    public double surfaceArea()
     {
-        double result = Math.sqrt(3*(ed * ed));
+        double result = Math.sqrt(3*(edge * edge));
         return result;
     }
 }

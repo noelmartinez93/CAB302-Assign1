@@ -12,16 +12,16 @@ public class SquarePyramid implements Shape
     }
 
     @Override
-    public double volume(double edg, double hei)
+    public double volume()
     {
-        double result = (edg * edg) * (hei / 3);
+        double result = (edge * edge) * (height / 3);
         return result;
     }
 
     @Override
-    public double surfaceArea (double edg, double hei)
+    public double surfaceArea ()
     {
-        double result = (edg * edg) + ((2 * edg) * Math.sqrt(((edg * edg) / 4) + (hei * hei)));
+        double result = (edge * edge) + ((2 * edge) * Math.sqrt(((edge * edge) / 4) + (height * height)));
         return result;
     }
 }
