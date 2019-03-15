@@ -5,7 +5,7 @@ public class Cone implements Shape
     private double radius;
     private double height;
 
-    public Cone (double rad, double hei)
+    public Cone(double rad, double hei)
     {
         this.radius = rad;
         this.height = hei;

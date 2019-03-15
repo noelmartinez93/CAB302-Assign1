@@ -5,7 +5,7 @@ public class SquarePyramid implements Shape
     private double edge;
     private double height;
 
-    public SquarePyramid (double edg, double hei)
+    public SquarePyramid(double edg, double hei)
     {
         this.edge = edg;
         this.height = hei;
