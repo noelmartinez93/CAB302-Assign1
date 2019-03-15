@@ -19,7 +19,7 @@ public class Tetrahedron implements Shape
     @Override
     public double surfaceArea()
     {
-        double result = Math.sqrt(3*(edge * edge));
+        double result = (Math.sqrt(3))*(edge * edge);
         return result;
     }
 }

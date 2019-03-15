@@ -19,7 +19,7 @@ public class Cone implements Shape
     }
 
     @Override
-    public double surfaceArea ()
+    public double surfaceArea()
     {
         double result = Math.PI*(radius * (radius + (Math.sqrt((height * height) + (radius * radius)))));
         return result;
