@@ -18,13 +18,13 @@ public class Staff extends Academic
     public double getWeeklyPay()
     {
         double result = 0;
-        if(hrs != 0)
+        if(hrs > 0)
         {
             result = hrs * 35;
         }
         if(hrs == 0)
         {
-            result = 1562.5; /* 75000 divided by 12 mos is 6250, then divided by 4 weeks is 1562.5 */
+            result = ((75000.00 / 364.00) * 7.00);
         }
         return result;
     }
