@@ -1,9 +1,17 @@
 package junit.Uber;
 
+import java.time.Duration;
+import java.time.Instant;
+
 public class Uber
 {
     private String carModel;
     private String driverName;
+    private static double uberRate = 0.0;
+    private static double uberSurge = 1.0;
+    private static double timeElapsed = 0.0;
+    private Instant start, end;
+
 
     public Uber(String cModel, String dName)
     {
@@ -23,26 +31,31 @@ public class Uber
 
     public static double setRate(double rate)
     {
-        return 0;
+        uberRate = rate;
+        return uberRate;
     }
 
     public static double getFareRate()
     {
-        return 0;
+        return uberRate;
     }
 
     public static double setSurge(double multiplier)
     {
-        return 0;
+        uberSurge = multiplier;
+        return uberSurge;
     }
 
     public void pickup()
     {
-
+        start = Instant.now();
     }
 
     public double setdownPassenger()
     {
-        return 0;
+        end = Instant.now();
+        double duration = Duration.between(start, end).toMillis();
+        double fare = uberRate * (duration / 1000) * uberSurge;
+        return fare;
     }
 }
