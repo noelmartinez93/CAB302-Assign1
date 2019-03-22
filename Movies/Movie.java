@@ -60,11 +60,11 @@ public class Movie {
      */
     public double rating()
     {
-        int size = ratings.size();
-        int total = 0;
+        double size = ratings.size();
+        double total = 0.0;
         for(int n = 0; n < size; n++)
         {
-            total = ratings.get(n);
+            total += ratings.get(n);
         }
         total = (total / size);
         return total;
