@@ -5,6 +5,9 @@ package coll.UserAccounts;
  */
 public class BankAccount {
 
+    private User owner;
+    private double funds;
+
     /**
      * Constructs a bank object with $0.0 funds and assigns the owner as the given User.
      *
@@ -12,7 +15,8 @@ public class BankAccount {
      */
     public BankAccount(User owner)
     {
-
+        this.owner = owner;
+        this.funds = 0.0;
     }
 
     /**
@@ -22,7 +26,7 @@ public class BankAccount {
      */
     public double getFunds()
     {
-
+        return funds;
     }
 
     /**
@@ -30,8 +34,9 @@ public class BankAccount {
      *
      * @param deposit - the sum of money to be deposited.
      */
-    public void deposit(double deposit) {
-
+    public void deposit(double deposit)
+    {
+        funds = funds + deposit;
     }
 
     /**
@@ -44,6 +49,21 @@ public class BankAccount {
      */
     public void withdraw(User user, double withdrawal) throws UserException, FundsException
     {
+        if(user.getUsername().equals(owner.getUsername()))
+        {
+            if(withdrawal > funds)
+            {
+                throw new FundsException();
+            }
+            else
+            {
+                funds = funds - withdrawal;
+            }
+        }
+        else
+        {
+            throw new UserException();
+        }
 
     }
 }

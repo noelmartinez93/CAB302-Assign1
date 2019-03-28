@@ -14,7 +14,20 @@ public class GUI {
      * @param b2 - the bank account that the funds are being transferred to.
      * @param amount - the amount of money to be transferred in $.
      */
-    public static void transfer(User user, BankAccount b1, BankAccount b2, double amount) {
-
+    public static void transfer(User user, BankAccount b1, BankAccount b2, double amount)
+    {
+        try
+        {
+            b1.withdraw(user,amount);
+            b2.deposit(amount);
+        }
+        catch(FundsException x)
+        {
+            System.out.print("Insufficient funds!");
+        }
+        catch(UserException y)
+        {
+            System.out.print("Unauthorized access!");
+        }
     }
 }
