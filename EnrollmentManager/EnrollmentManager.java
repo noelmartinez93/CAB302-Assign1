@@ -23,9 +23,9 @@ public class EnrollmentManager {
      */
     public static void enroll(String unit, String student)
     {
-        Set newstudent = new HashSet();
-        newstudent.add(student);
-        enrollments.put(unit,newstudent);
+        Set<String> stdnts = enrollments.getOrDefault(unit, new HashSet<>());
+        stdnts.add(student);
+        enrollments.put(unit,stdnts);
     }
 
     /**
@@ -52,9 +52,21 @@ public class EnrollmentManager {
      * @param unit - the unit for the student to be withdrawn from
      * @param student - the student
      */
+
     public static void withdrawEnrollment(String unit, String student)
     {
-        enrollments.remove(unit,student);
+        /*
+        for(Map.Entry<String, Set<String>> entry : enrollments.entrySet())
+        {
+            if(entry.equals(unit) && entry.equals(student))
+            {
+                enrollments.remove(student);
+            }
+        }*/
+
+        Set<String> stdnts = enrollments.getOrDefault(unit, new HashSet<>());
+        stdnts.remove(student);
+        enrollments.put(unit,stdnts);
     }
 
     /**
@@ -64,7 +76,10 @@ public class EnrollmentManager {
      */
     public static void withdrawStudent(String student)
     {
-        enrollments.remove(student);
+        for(Set<String> entry : enrollments.values())
+        {
+            entry.remove(student);
+        }
     }
 
     /**
@@ -78,7 +93,13 @@ public class EnrollmentManager {
     public static Set<String> getStudents(String discipline)
     {
         Set<String> results = new HashSet<>();
-        results = enrollments.get(discipline);
+        for(Map.Entry<String, Set<String>> entry : enrollments.entrySet())
+        {
+            if(entry.getKey().startsWith(discipline))
+            {
+                results.addAll(entry.getValue());
+            }
+        }
         return results;
     }
 }
