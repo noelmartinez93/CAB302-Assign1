@@ -1,5 +1,7 @@
 package patt.Coffee;
 
+import java.util.ArrayList;
+
 public class CoffeeFactory {
 
     public static enum Type {
@@ -34,8 +36,26 @@ public class CoffeeFactory {
         }
     }
 
+
     public static Coffee CreateCoffee(Type type)
     {
-        return()
+        ArrayList<Ingredient> product = new ArrayList<Ingredient>();
+        if(type == Type.LONG_BLACK)
+        {
+            product.add(Ingredient.ESPRESSO);
+            product.add(Ingredient.ESPRESSO);
+        }
+        if(type == Type.FLAT_WHITE)
+        {
+            product.add(Ingredient.ESPRESSO);
+            product.add(Ingredient.MILK);
+        }
+        if(type == Type.MOCHA)
+        {
+            product.add(Ingredient.CHOCOLATE);
+            product.add(Ingredient.ESPRESSO);
+            product.add(Ingredient.MILK);
+        }
+        return new Coffee(product,type);
     }
 }
